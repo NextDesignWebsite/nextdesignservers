@@ -145,7 +145,8 @@ const allowedOrigins = [
     "https://invoice-recovery-software.onrender.com",
     "https://lumens-electrical.co.uk",
     "https://caseybuiltfitness.com",
-    "https://lumens-electrical.co.uk"
+    "https://lumens-electrical.co.uk",
+    "https://dysonsheating.co.uk",
 ];
 app.use(cors({
     origin: function (origin, callback) {
@@ -178,6 +179,8 @@ function decideDb(req, res, next){
     } else if(origin == "https://caseybuiltfitness.com"){
         req.db = cadgolfDb;
     } else if(origin == "https://lumens-electrical.co.uk"){
+        req.db = lumensDb;
+    } else if(origin == "https://dysonsheating.co.uk"){
         req.db = lumensDb;
     }
 
