@@ -3555,7 +3555,7 @@ app.post("/casey/api/send-email", async (req, res) => {
     return res.json({ message: 'success' });
 });
 app.post("/dysons/api/dysons-email", async (req, res) => {
-    await jobSendEmail("jackbaileywoods@gmail.com", req.body.text); // "info@dysonsheating.co.uk",
+    await jobSendEmail("info@dysonsheating.co.uk", req.body.text); // 
 
     return res.json({ message: 'success' });
 });
