@@ -3580,8 +3580,7 @@ app.post("/dysons/api/dysons-email", async (req, res) => {
         });
     }
 
-    //await jobSendEmail("info@dysonsheating.co.uk", req.body.text);
-    await jobSendEmail("jackbaileywoods@gmail.com", req.body.text);
+    await jobSendEmail("info@dysonsheating.co.uk", req.body.text);
 
     return res.json({ message: 'success' });
 });
