@@ -3572,6 +3572,7 @@ app.post("/dysons/api/dysons-email", async (req, res) => {
     );
 
     const result = await verify.json();
+    console.log(result);
 
     if (!result.success) {
         return res.status(403).json({
