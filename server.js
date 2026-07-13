@@ -3555,7 +3555,32 @@ app.post("/casey/api/send-email", async (req, res) => {
     return res.json({ message: 'success' });
 });
 app.post("/dysons/api/dysons-email", async (req, res) => {
-    await jobSendEmail("info@dysonsheating.co.uk", req.body.text); // 
+    const token = req.body.token;
+
+    const verify = await fetch(
+        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+        {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: new URLSearchParams({
+                secret: "0x4AAAAAAD0yksgwtHEWYqfJfMeGqMkys4E",
+                response: token
+            })
+        }
+    );
+
+    const result = await verify.json();
+
+    if (!result.success) {
+        return res.status(403).json({
+            message: "failure"
+        });
+    }
+
+    //await jobSendEmail("info@dysonsheating.co.uk", req.body.text);
+    await jobSendEmail("jackbaileywoods@gmail.com", req.body.text);
 
     return res.json({ message: 'success' });
 });
